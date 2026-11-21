@@ -1,0 +1,138 @@
+/* ===== Ice Cream Theme - style2.qss ===== */
+
+/* Global Base */
+QWidget {
+    background-color: #FFF8F0;
+    color: #4A2C2A;
+    font-family: "Segoe UI", "Arial", sans-serif;
+    font-size: 14px;
+}
+
+QMainWindow, QDialog {
+    background-color: #FFF8F0;
+}
+
+/* Labels */
+QLabel {
+    color: #5C3A35;
+    font-weight: 600;
+    background-color: transparent;
+}
+
+QLabel#titleLabel {
+    font-size: 22px;
+    font-weight: 700;
+    color: #D9467A;
+    padding: 6px 0px;
+}
+
+/* Push Buttons */
+QPushButton {
+    background-color: #F06C9B;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-weight: 600;
+    min-width: 110px;
+}
+
+QPushButton:hover {
+    background-color: #E0457E;
+}
+
+QPushButton:pressed {
+    background-color: #C2335F;
+    padding-top: 11px;
+    padding-bottom: 9px;
+}
+
+QPushButton:disabled {
+    background-color: #E8C9D3;
+    color: #FFFFFF;
+}
+
+/* Secondary button (e.g. About) */
+QPushButton#secondaryButton {
+    background-color: #7BC8C4;
+}
+
+QPushButton#secondaryButton:hover {
+    background-color: #5DB3AE;
+}
+
+QPushButton#secondaryButton:pressed {
+    background-color: #46978F;
+}
+
+/* Frames / containers */
+QFrame#card {
+    background-color: #FFFFFF;
+    border: 1px solid #F3D3DE;
+    border-radius: 14px;
+}
+
+/* Matplotlib navigation toolbar */
+QToolBar {
+    background-color: #FFFFFF;
+    border: 1px solid #F3D3DE;
+    border-radius: 8px;
+    spacing: 4px;
+    padding: 2px;
+}
+
+QToolButton {
+    background-color: transparent;
+    border-radius: 6px;
+    padding: 4px;
+}
+
+QToolButton:hover {
+    background-color: #FCE4EC;
+}
+
+QToolButton:checked {
+    background-color: #F8BBD0;
+}
+
+/* Message boxes (About window) */
+QMessageBox {
+    background-color: #FFF8F0;
+}
+
+QMessageBox QLabel {
+    color: #4A2C2A;
+    font-weight: 500;
+}
+
+/* Status bar */
+QStatusBar {
+    background-color: #FCE4EC;
+    color: #5C3A35;
+}
+
+/* Tooltips */
+QToolTip {
+    background-color: #4A2C2A;
+    color: #FFFFFF;
+    border: none;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+/* Scrollbars */
+QScrollBar:vertical {
+    background: #FFF8F0;
+    width: 10px;
+    margin: 0px;
+}
+
+QScrollBar::handle:vertical {
+    background: #F3B6C9;
+    border-radius: 5px;
+    min-height: 20px;
+}
+
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
