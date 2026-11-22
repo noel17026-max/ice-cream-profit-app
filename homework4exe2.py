@@ -11,8 +11,8 @@ from matplotlib.figure import Figure
 
 
 class AboutWindow(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
         self.setWindowTitle("About")
         self.setMinimumSize(460, 260)
 
@@ -94,12 +94,14 @@ class MainWindow(QMainWindow):
 
         self.figure.clear()
         ax = self.figure.add_subplot(1, 1, 1)
-        ax.scatter(data_x, data_y, label='Data', s=10,
+        ax.scatter(data_x, data_y, label='Data', s=1,
                    color='blue', marker='x')
         ax.plot(line_x, line_y, color='red', label='Trend Line')
         ax.text(data_x.min(), data_y.max(),
                 f'y = {coefficients[0]:.2f}x + {coefficients[1]:.2f}',
                 color='red')
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
         ax.set_xlabel('Temperature')
         ax.set_ylabel('Revenue')
         ax.set_title('Ice Cream Revenue vs Temperature')
@@ -107,7 +109,7 @@ class MainWindow(QMainWindow):
         self.canvas.draw()
 
     def open_about_window(self):
-        about_dialog = AboutWindow(self)
+        about_dialog = AboutWindow()
         about_dialog.exec()
 
     def plot_sample(self):
