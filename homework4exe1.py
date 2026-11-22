@@ -18,8 +18,8 @@ from PySide6.QtWidgets import (
 
 
 class AboutWindow(QDialog):
-    def __init__(self, parent=None):
-        super().__init__(parent)
+    def __init__(self):
+        super().__init__()
         self.setWindowTitle("About")
         self.setMinimumSize(460, 260)
 
@@ -105,27 +105,27 @@ class GradesMainWindow(QMainWindow):
                 for line in f:
                     x, y = line.strip().split(",")
                     x_values.append(int(x))
-                    y_values.append(int(y))    
+                    y_values.append(int(y))
             self.student_ids = x_values
             self.original_grades = y_values
-            self.corrected_grades = y_values.copy()    
-            self.populate_table() 
+            self.corrected_grades = y_values.copy()
+            self.populate_table()
 
     def apply_bonus(self):
-            bonus = self.bonus_spinbox.value()
-            new_grades = []
-            for grade in self.original_grades:
-                updated = grade + bonus
-                if updated > 100:
-                   updated = 100
-                new_grades.append(updated)
-            self.corrected_grades = new_grades
-            self.populate_table()
-            if self.selected_file:
-                with open(self.selected_file, "w") as f:
-                    f.write("ID,Grade\n")
-                    for i in range(len(self.student_ids)):
-                        f.write(f"{self.student_ids[i]},{self.corrected_grades[i]}\n")
+        bonus = self.bonus_spinbox.value()
+        new_grades = []
+        for grade in self.original_grades:
+            updated = grade + bonus
+            if updated > 100:
+                updated = 100
+            new_grades.append(updated)
+        self.corrected_grades = new_grades
+        self.populate_table()
+        if self.selected_file:
+            with open(self.selected_file, "w") as f:
+                f.write("ID,Grade\n")
+                for i in range(len(self.student_ids)):
+                    f.write(f"{self.student_ids[i]},{self.corrected_grades[i]}\n")
 
     def populate_table(self):
         for row in range(len(self.student_ids)):
@@ -134,7 +134,7 @@ class GradesMainWindow(QMainWindow):
             self.table.setItem(row, 2, QTableWidgetItem(str(self.corrected_grades[row])))
 
     def open_about_window(self):
-        about_dialog = AboutWindow(self)
+        about_dialog = AboutWindow()
         about_dialog.exec()
 
 
@@ -151,8 +151,3 @@ if __name__ == "__main__":
     window = GradesMainWindow()
     window.show()
     app.exec()
-
-
-
-
-
